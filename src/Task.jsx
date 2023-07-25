@@ -1,13 +1,17 @@
 /* eslint-disable react/prop-types */
-import { TextInput } from '@mantine/core';
+import { TextInput,Button } from '@mantine/core';
 
-const Task = ({ task, onEditTask }) => {
+const Task = ({ task, onEditTask,onDeleteTask }) => {
   return (
-    <TextInput
-      maw={150}
-      value={task.name}
-      onChange={(e) => onEditTask(task.id, e.currentTarget.value)}
-    />
+    <div>
+        <TextInput
+          maw={150}
+          value={task.name}
+          mb={4}
+          onChange={(e) => onEditTask(task.id, e.currentTarget.value)}
+        />
+        <Button  onClick={()=>onDeleteTask(task.id)}>Delete</Button>
+    </div>
   );
 };
 

@@ -17,6 +17,10 @@ const App = () => {
     );
   };
 
+  const onDeleteTask = (id) => {
+    setTasks((prev) => prev.filter((task) => task.id !== id))
+  };
+
   return (
     <Container mt={10}>
       <AddTask onAddTask={onAddTask} />
@@ -30,7 +34,7 @@ const App = () => {
         wrap="wrap"
       >
         {tasks.map((task) => (
-          <Task key={task.id} task={task} onEditTask={onEditTask} />
+          <Task key={task.id} task={task} onEditTask={onEditTask} onDeleteTask={onDeleteTask} />
         ))}
       </Flex>
     </Container>
